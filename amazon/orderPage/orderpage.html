@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Page</title>
+    <link rel="stylesheet" href="/amazon/orderPage/orderpage.css">
+</head>
+<body>
+    <header>
+        <div class="left">
+            <a href="/amazon/productPage/innerpage.html"><img src="/amazon/props/simbels/amazon-logo.png"></a>
+        </div>
+        <div class="center">
+            <div class="check">Checkout (<span class="count">5 items</span>)</div>
+        </div>
+        <div class="right">
+            <img src="/amazon/props/simbels/checkout-lock-icon.png">
+        </div>
+    </header>
+    <div class="review">
+        Review your order
+    </div>
+    <main>
+        <div class="grid-checkout">
+            <div class="js-order-container">
+
+            </div> 
+            <div class="order-summery">
+                <div class="h1">Order Summary</div>
+                <div class="summery-row">
+                    <div>Items (6):</div>
+                    <div class="summery-money">$60.90</div>
+                </div>
+                <div class="summery-row">
+                    <div>Shipping & handling:</div>
+                    <div class="summery-money">$9.99</div>
+                </div>
+                <div class="summery-row">
+                    <div class="tax">Total before tax:</div>
+                    <div class="summery-money1">$70.89</div>
+                </div>
+                <div class="summery-row">
+                    <div>Estimated tax (10%):</div>
+                    <div class="summery-money">$7.09</div>
+                </div>
+                <div class="summery-row1">
+                    <div>Order total:</div>
+                    <div class="summery-money">$77.98</div>
+                </div>
+                <a class="button-order" href="/amazon/placedPage/placeorder.html">
+                    <button>Place your order</button>
+                </a>
+            </div>
+        </div>
+    </main>
+    <script src="https://unpkg.com/supersimpledev@1.0.1/hello.js"></script>
+    <script src="https://unpkg.com/dayjs@1.11.10/dayjs.min.js"></script>
+    <script type="module" src="orderpage.js"></script>
+</body>
+</html>

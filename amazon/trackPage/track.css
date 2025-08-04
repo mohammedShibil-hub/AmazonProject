@@ -1,0 +1,51 @@
+
+main{
+    margin: 90px auto;
+    padding: 0 30px;
+    max-width: 850px;
+}
+.link{
+    margin-bottom: 30px;
+    display: inline-block;
+    color: rgb( 1, 124, 182);
+}
+.link:hover{
+    color: rgb(196, 80, 0);;
+}
+.heading{
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.name ,.quantity{
+    margin-bottom: 3px;
+}
+.image-div{
+    width: 130px;
+    margin: 25px 0 50px 0;
+}
+.image-div img{
+    width: 100%;
+}
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(6, 125, 98);
+    margin-bottom: 15px;
+}
+.progress-bar-container{
+    height: 25px;
+    width: 100%;
+    
+    border-radius: 14px;
+    border: 1px solid rgb(200, 200, 200);
+}
+.progress-bar{
+    background-color: green;
+    height: 100%;
+    border-radius: 50px;
+    width: 8%;
+}

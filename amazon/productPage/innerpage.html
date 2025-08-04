@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodect Page</title>
+    <link rel="stylesheet" href="/amazon/mainPage/head.css">
+    <link rel="stylesheet" href="/amazon/productPage/innerpage.css" >
+</head>
+<body>
+    <header class="head1">
+        <div class="left-section">
+            <div class="logo-div">
+                <a href="/amazon/mainPage/amazon.html"><img  class="logo" src="/amazon/props/simbels/amazon-logo-white.png"></a>
+            </div>
+        </div>
+        <div class="middle-section">
+            <input class="search"  type="search" placeholder="Search">
+            <div class="search-img-div">
+                <img class="search-img" src="/amazon/props/simbels/icons8-search-100.png">
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="return">
+                <p class="p1">Returns</p>
+                <p class="p2">& Orders</p>
+            </div>
+            <a class="cart-div" href="/amazon/orderPage/orderpage.html">
+                <img src="/amazon/props/simbels/cart-icon.png">
+                <p class="cound js-add">0</p>
+                <p class="p2">Cart</p>
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="grid js-grid">
+            <div class="box-div">
+                <div class="pics">
+                    <img src="/amazon/props/prodects 1/athletic-cotton-socks-6-pairs.jpg">
+                </div>
+                <div class="discription">
+                    Black and Grey Athletic Cotton Socks - 6 pairs
+                </div>
+                <div class="star-rating">
+                    <img src="/amazon/ratings/rating-45.png">
+                    <div class="rating-cound">87</div>
+                </div>
+                <div class="amound">
+                    $10.90
+                </div>
+                <div class="quantity">
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                    <div class="added">
+                        <img src="/amazon/props/simbels/checkmark.png" alt="">
+                        Added
+                    </div>
+                </div>
+                <button onclick="addCart()">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="innerpage.js"></script>
+</body>
+</html>

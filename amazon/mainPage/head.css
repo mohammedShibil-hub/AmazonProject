@@ -1,0 +1,123 @@
+body{
+    background-color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+.head1{
+    display: flex;
+    height: 60px;
+    width: 1250px;
+    background-color: rgb(19 25 32);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+    position: fixed;
+    margin-top: -90px;
+    padding: 0px 15px;
+}
+.left-section{
+    width: 180px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+.logo-div{
+    width: 113px;
+    height: 50px;
+    margin: 5px;
+}
+.logo-div:hover{
+    border: 1px solid white;
+}
+.logo{
+    width: 100px;
+    background-size:cover ;
+    margin: 10px 6px;
+}
+.middle-section{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 10px 0px 10px;
+}
+.search{
+    height: 41px;
+    flex: 1;
+    font-size: 15px;
+    padding: 1px 2px 1px 15px;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 6px 0 0 6px;
+}
+.search:active{
+    border: 2px solid orange;
+}
+.search-img-div{
+    background-color: rgb(254, 189, 105);
+    width: 45px;
+    height: 41px;
+    border-radius: 0px 6px 6px 0px;
+    cursor: pointer;
+}
+.search-img-div:active{
+    border: 2px solid orange;
+}
+.search-img-div:hover{
+    background-color: orange;
+}
+.search-img{
+    width: 25px;
+    padding :8px 0px 0px 10px;
+}
+.right-section{
+    width: 195px;
+    display: flex;
+    align-items: center;
+}
+.p1{
+    margin: 0;
+    font-size: 13px;
+    color: white;
+    margin-bottom: -2px;
+}
+.p2 ,.p22{
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+    display:inline-block ;
+    color: white;
+    line-height: 10px;
+}
+.return{
+    margin: 0 3px 0 11px;
+    padding: 10px;
+    width: 65px;
+}
+.return:hover{
+    border: 1px solid white;
+    border-radius: 2px;
+}
+.cart-div{
+    position: relative;
+    padding: 4px 8px;
+}
+.cart-div:hover{
+    border: 1px solid white;
+    border-radius: 2px;
+}
+.cart-div img{
+    width: 50px;
+    margin: 5px -6px 0 0;
+}
+.cound{
+    position: absolute;
+    font-weight: 700;
+    color: orange;
+    top: 8px;
+    margin: 0;
+    right: 46px;
+    left: 27px;
+    font-size: 16px;
+    text-align: center;
+}
