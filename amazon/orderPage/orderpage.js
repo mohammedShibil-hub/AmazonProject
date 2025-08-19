@@ -1,22 +1,21 @@
-import {cart, removeFromCart} from "../productPage/cart.js";
+import {cart, removeFromCart, updateDeliveryOption} from "../productPage/cart.js";
 import {products} from "../productPage/product.js";
 import {hello} from "https://unpkg.com/supersimpledev@1.0.1/hello.esm.js"
 import { deliveryOptions } from "./deliveryOption.js";
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 hello();
 const today = dayjs()
 const deliveryDate = today.add(7, 'days')
-deliveryDate.format('dddd, MMMM D');
 console.log(deliveryDate.format('dddd, MMMM D'));
 
 
  
 
-let cartSummaryHTML = '';
+let cartSummaryHTML = "";
 
 cart.forEach((cartItem) => {
     const productId = cartItem.productId;
-
     let matchingProduct = products.find(product => product.id === productId); // for get full product details in code using one data (normalizing the data)
 
 /*    products.forEach((product) => {
@@ -30,17 +29,27 @@ cart.forEach((cartItem) => {
         return;
     }
 
-    const deliveryid = cartItem.deliveryid;
-    let deliveryOption = deliveryOptions.find(Option => Option.id === deliveryid); // for get full delivery option in code using one data (normalizing the data)
+    const deliveryOptionId = cartItem.deliveryOptionId;
+    let deliveryOption = deliveryOptions.find(option => option.id === deliveryOptionId); // for get full delivery option in code using one data (normalizing the data)
     // instead of this 
     /* deliveryOption.forEach((option) => {
-        if (option.id === deliveryid) {
+        if (option.id === deliveryOptionId) {
             deliveryOption = option;
         }  
     }); */
-     const today = dayjs();
+
+    if(!deliveryOption) {
+        console.warn(`delivery id ${deliveryOptionId} not found`);
+        deliveryOption = deliveryOptions[0]
+        
+    }
+
+    const today = dayjs();
     const deliveryDate = today.add(deliveryOption.deliveryDays, 'days')
     const dateString = deliveryDate.format('dddd, MMMM D');
+
+    
+    
 
     cartSummaryHTML += `
     <div class="order-box js-cart-container-${matchingProduct.id}">
@@ -69,24 +78,28 @@ function deliveryOptionHTML(matchingProduct, cartItem) {
 
     deliveryOptions.forEach((deliveryOption) => {
         const today = dayjs();
-        const deliveryDate = today.add(deliveryOption.deliveryDays, 'days')
+        const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
         const dateString = deliveryDate.format('dddd, MMMM D');
-
         const priceString = deliveryOption.priceCents === 0
         ? 'FREE'                                    //act like if statement. statement is true work this
         : `$${deliveryOption.priceCents / 100} -`;  // false work this
 
-        const isChecked = deliveryOption.id === cartItem.deliveryid
+        const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
+        console.log(deliveryOption.deliveryDays);
 
         html += ` 
-            <div class="op1">
-                <input type="radio" ${isChecked ? 'checked': ''} name="select${matchingProduct.id}" value="day1">
+            <div class="op1 js-delivery-option"
+            data-product-id="${matchingProduct.id}"
+            data-delivery-option-id="${deliveryOption.id}">
+                <input type="radio" ${isChecked ? 'checked': ''} name="delivery-option-${matchingProduct.id}">
                 <div class="details">
                     <div class="day1">${dateString}</div>
                     <div class="cost">${priceString} Shipping</div>
                 </div>
             </div>
         `
+        
+        
     });
     return html;
 }
@@ -105,8 +118,21 @@ document.querySelectorAll('.js-delete-button').forEach((link) => {
         });
     });
 
+document.querySelectorAll('.js-delivery-option')
+    .forEach((element) => {
+        element.addEventListener('click', () => {
+            const {productId, deliveryOptionId} = element.dataset;//shorthand property of this
+            /*
+                const productId = element.dataset.productId
+                const deliveryOptionId = element.dataset.deliveryOptionId
+            */
+            updateDeliveryOption(productId, deliveryOptionId);
+        })
+    })
+
 //21 special class for get diffrent class name using id, for remove html when click delete button
 //30 .toFixed(2) for display 2 number/2 decimal
 //37 name ="select${matchingProduct.id}" for separate name for separate items to avoid radio butten conflict
 //32 data-product-id="${matchingProduct.id}" for which product is delete using id 
 //73 checked on radio input for radio is currectly check date using id
+
